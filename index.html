@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CHUNNU — Streetwear Aesthetic</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,13 +12,14 @@
     <div class="logo">CHUNNU</div>
     <ul class="nav-links">
       <li class="active">Home</li>
+      <!-- later you can add <li>Shop</li> or <li>Contact</li> -->
     </ul>
   </nav>
 
-  <!-- 🏠 Home Section -->
+  <!-- 🛍️ Home Section -->
   <section class="home">
-    <h1 class="brand-slogan">A wearable connection you can connect with in your outfit</h1>
-    <p class="tagline">Streetwear meets cuteness, coziness, and individuality.</p>
+    <h1>Welcome to CHUNNU</h1>
+    <p>Streetwear meets cuteness, coziness, and individuality.</p>
   </section>
 
   <!-- 🧢 Product Grid -->
@@ -41,23 +41,22 @@
 
   <!-- 🔗 Socials -->
   <footer>
-    <p>Follow us: <a href="https://www.instagram.com/chunnu_brandofficial" target="_blank">@chunnu_brandofficial</a></p>
+    <p>Follow us: <a href="https://www.instagram.com/chunnu_brandofficial">@chunnu_brandofficial</a></p>
   </footer>
 
-  <!-- 🪟 Modal: Brown Shirt -->
+  <!-- 🪟 Modal (Pop-Up) Section -->
   <div id="brown-shirt" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal('brown-shirt')">&times;</span>
       <img src="images/brown-shirt.jpg" alt="Brown Streetwear Shirt">
       <h2>Brown Aesthetic Streetwear Tattoo Shirt</h2>
-      <p>Check the Google Form below for mockups, sizing, and more details.</p>
+      <p>Check the Google Form below for details & sizing info.</p>
       <a class="order-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeRe8rX6UViGJlPSbl-H2b8Fe2RLL6Kq7bO9hqCAKKNW0j4tw/viewform?usp=header" target="_blank">
         Order Now
       </a>
     </div>
   </div>
 
-  <!-- 🪟 Modal: Red Jersey -->
   <div id="red-jersey" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal('red-jersey')">&times;</span>
@@ -70,3 +69,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
