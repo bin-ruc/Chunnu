@@ -1,4 +1,3 @@
-<!-- Full website template with bag popup, grey background, black navbar, and product integration -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,193 +8,252 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #1f1f1f;
-      color: white;
+      background: #1a1a1a; /* black background */
+      color: #fff;
     }
+
+    /* Top Navigation Bar */
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      background: black;
-      position: fixed;
       width: 100%;
+      background: #000;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
       top: 0;
-      z-index: 10;
+      left: 0;
+      z-index: 1000;
     }
-    .navbar-logo img {
-      height: 45px;
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-logo img {
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
+      object-fit: cover;
     }
+
     .nav-links a {
-      margin-left: 20px;
+      margin-left: 25px;
       text-decoration: none;
       color: white;
+      font-weight: bold;
       font-size: 16px;
     }
-    .banner {
-      margin-top: 90px;
-      background: #2b2b2b;
-      padding: 30px;
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-    }
-    .product-grid {
-      margin: 50px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-    }
-    .product {
+
+    /* Banner Under Navigation */
+    .brand-banner {
+      width: 100%;
+      margin-top: 80px;
       background: #2a2a2a;
-      padding: 15px;
+      padding: 18px;
+      text-align: center;
+      font-size: 15px;
+      color: #dcdcdc;
+    }
+
+    /* Product Grid */
+    .product-section {
+      padding: 50px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #2a2a2a;
+      padding: 20px;
       border-radius: 12px;
       text-align: center;
+      transition: 0.3s;
     }
-    .product img {
+
+    .product-card:hover {
+      transform: scale(1.02);
+    }
+
+    .product-card img {
       width: 100%;
       border-radius: 10px;
+      object-fit: cover;
     }
-    .product button {
-      margin-top: 10px;
-      padding: 8px 15px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .order-btn { background: #444; color: white; }
-    .bag-btn { background: white; color: black; }
 
-    /* Bag Popup */
-    .bag-popup {
+    .product-title {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .availability {
+      font-size: 14px;
+      margin-top: 5px;
+      color: #4cff4c;
+    }
+
+    .button-row {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .details-btn {
+      background: #fff;
+      color: #000;
+    }
+
+    .order-btn {
+      background: #000;
+      color: #fff;
+    }
+
+    /* Popup Modal */
+    .modal {
+      display: none;
       position: fixed;
       top: 0;
-      right: -400px;
-      width: 350px;
-      height: 100%;
-      background: #111;
-      color: white;
-      padding: 20px;
-      transition: 0.4s;
-      z-index: 20;
-    }
-    .bag-popup.open { right: 0; }
-    .bag-item {
-      display: flex;
-      margin-bottom: 15px;
-      background: #222;
-      padding: 10px;
-      border-radius: 10px;
-    }
-    .bag-item img {
-      width: 65px;
-      height: 65px;
-      border-radius: 8px;
-      margin-right: 10px;
-    }
-    .checkout-btn {
-      background: white;
-      color: black;
+      left: 0;
       width: 100%;
-      padding: 12px;
+      height: 100%;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .modal-content {
+      background: #222;
+      width: 90%;
+      max-width: 850px;
+      padding: 25px;
+      border-radius: 14px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .modal-images img {
+      width: 180px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .close-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: red;
       border: none;
-      border-radius: 6px;
-      margin-top: 20px;
+      color: #fff;
+      border-radius: 8px;
       cursor: pointer;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- TOP NAV -->
   <div class="navbar">
-    <div class="navbar-logo">
-      <img src="YOUR_LOGO_LINK_HERE" alt="CHUNNU Logo">
-    </div>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#contact">Contact</a>
-      <a href="javascript:void(0)" onclick="openBag()">🛍️ Bag</a>
+    <div class="nav-left">
+      <div class="nav-logo"><img src="logo.png" alt="CHUNNU Logo"></div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </div>
 
-  <!-- BANNER -->
-  <div class="banner">
-    CHUNNU is a luxury streetwear brand that blends minimal aesthetics with bold expression — A Connection for Everyone
+  <!-- BRAND BANNER -->
+  <div class="brand-banner">
+    Chunnu is a luxury streetwear brand blending minimal aesthetics with bold expression — A Connection for Everyone
   </div>
 
-  <!-- PRODUCT GRID -->
-  <div id="shop" class="product-grid">
+  <!-- PRODUCT SECTION -->
+  <div class="product-section" id="home">
+    <div class="product-grid">
 
-    <!-- PRODUCT 1 -->
-    <div class="product">
-      <img src="https://i.ibb.co/3W5FPv8/sample1.png" alt="Stray Kids Eyes Shirt">
-      <h3>Stray Kids Eyes Aesthetic Shirt</h3>
-      <button class="bag-btn" onclick="addToBag('Stray Kids Eyes Aesthetic Shirt', 'https://i.ibb.co/3W5FPv8/sample1.png', 'https://forms.gle/pCpHLP1tsYz8MLqW8')">Add to Bag</button>
-      <a href="https://forms.gle/pCpHLP1tsYz8MLqW8"><button class="order-btn">Order Now</button></a>
+      <!-- PRODUCT 1 TEMPLATE -->
+      <div class="product-card">
+        <img src="https://via.placeholder.com/400" alt="Product Image">
+        <div class="product-title">Stray Kids Eyes Aesthetic Shirt</div>
+        <div class="availability">Available</div>
+        <div class="button-row">
+          <button class="btn details-btn" onclick="openModal(1)">More Details</button>
+          <a href="https://forms.gle/pCpHLP1tsYz8MLqW8" target="_blank"><button class="btn order-btn">Order Now</button></a>
+        </div>
+      </div>
+
     </div>
-
-    <!-- PRODUCT 2 -->
-    <div class="product">
-      <img src="https://i.ibb.co/kh3WbVt/sample2.png" alt="Stray Kids Giant Shirt">
-      <h3>Stray Kids Giant Album Stage Shirt</h3>
-      <button class="bag-btn" onclick="addToBag('Stray Kids Giant Album Stage Shirt', 'https://i.ibb.co/kh3WbVt/sample2.png', 'https://forms.gle/H34TwknBvEJ46XC6A')">Add to Bag</button>
-      <a href="https://forms.gle/H34TwknBvEJ46XC6A"><button class="order-btn">Order Now</button></a>
-    </div>
-
-    <!-- COMING SOON -->
-    <div class="product">
-      <img src="https://i.ibb.co/fXmh6j3/comingsoon.png" alt="Phone Case Coming Soon">
-      <h3>DOIT Phone Case (Coming Soon)</h3>
-    </div>
-
   </div>
 
-  <!-- BAG POPUP -->
-  <div id="bagPopup" class="bag-popup">
-    <h2>Your Bag</h2>
-    <div id="bagItems"></div>
-    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+
+  <!-- MODAL TEMPLATE -->
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <div class="modal-images" id="modalImages"></div>
+      <div class="modal-info">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+        <a id="modalOrder" target="_blank"><button class="btn order-btn">Order Now</button></a>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+      </div>
+    </div>
   </div>
 
-  <script>
-    let bag = [];
 
-    function addToBag(name, img, link) {
-      bag.push({ name, img, link });
-      alert(name + " added to your bag!");
-      updateBag();
-    }
+<script>
+// PRODUCT DATA
+const products = {
+  1: {
+    title: "Stray Kids Eyes Aesthetic Shirt",
+    images: [
+      "https://via.placeholder.com/400",
+      "https://via.placeholder.com/400"
+    ],
+    description: "This t-shirt captures the bold energy of Stray Kids...",
+    order: "https://forms.gle/pCpHLP1tsYz8MLqW8"
+  }
+};
 
-    function openBag() {
-      document.getElementById("bagPopup").classList.add("open");
-      updateBag();
-    }
+// OPEN MODAL
+function openModal(id) {
+  const p = products[id];
+  document.getElementById("modalTitle").innerText = p.title;
+  document.getElementById("modalDescription").innerText = p.description;
+  document.getElementById("modalOrder").href = p.order;
 
-    function updateBag() {
-      const bagDiv = document.getElementById("bagItems");
-      bagDiv.innerHTML = '';
-      bag.forEach(item => {
-        bagDiv.innerHTML += `
-          <div class='bag-item'>
-            <img src='${item.img}'>
-            <div>
-              <p>${item.name}</p>
-              <a href='${item.link}' target='_blank'>Order Form</a>
-            </div>
-          </div>
-        `;
-      });
-    }
+  document.getElementById("modalImages").innerHTML = p.images
+    .map(img => `<img src='${img}'>`) 
+    .join("");
 
-    function checkout() {
-      let checkoutText = "Here are your order links:\n\n";
-      bag.forEach(item => checkoutText += item.name + ": " + item.link + "\n");
-      alert(checkoutText);
-    }
-  </script>
+  document.getElementById("productModal").style.display = "flex";
+}
+
+// CLOSE MODAL
+function closeModal() {
+  document.getElementById("productModal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
+<!-- Full updated website code will go here. -->
