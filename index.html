@@ -1,62 +1,201 @@
+<!-- Full website template with bag popup, grey background, black navbar, and product integration -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CHUNNU | A Connection for Everyone</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>CHUNNU — Luxury Streetwear</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #1f1f1f;
+      color: white;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: black;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+    .navbar-logo img {
+      height: 45px;
+      border-radius: 50%;
+    }
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+    }
+    .banner {
+      margin-top: 90px;
+      background: #2b2b2b;
+      padding: 30px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .product-grid {
+      margin: 50px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+    .product {
+      background: #2a2a2a;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .product button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .order-btn { background: #444; color: white; }
+    .bag-btn { background: white; color: black; }
+
+    /* Bag Popup */
+    .bag-popup {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 350px;
+      height: 100%;
+      background: #111;
+      color: white;
+      padding: 20px;
+      transition: 0.4s;
+      z-index: 20;
+    }
+    .bag-popup.open { right: 0; }
+    .bag-item {
+      display: flex;
+      margin-bottom: 15px;
+      background: #222;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .bag-item img {
+      width: 65px;
+      height: 65px;
+      border-radius: 8px;
+      margin-right: 10px;
+    }
+    .checkout-btn {
+      background: white;
+      color: black;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <h1>CHUNNU</h1>
-    <p class="slogan">A Connection for Everyone</p>
-  </header>
-
-  <main class="product-grid">
-    <!-- Product 1 -->
-    <div class="product" onclick="openModal('brown-shirt')">
-      <img src="images/brown-shirt.jpg" alt="Brown Aesthetic Streetwear Fashion Tattoo Inspired" />
-      <h2>Brown Aesthetic Streetwear Fashion Tattoo Inspired</h2>
-      <p class="status preorder">Pre-order Now</p>
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="navbar-logo">
+      <img src="YOUR_LOGO_LINK_HERE" alt="CHUNNU Logo">
     </div>
-
-    <!-- Product 2 -->
-    <div class="product" onclick="openModal('red-jersey')">
-      <img src="images/red-jersey.jpg" alt="Red Jersey Aesthetic" />
-      <h2>Red Jersey Aesthetic</h2>
-      <p class="status comingsoon">Coming Soon</p>
-    </div>
-
-    <!-- Product 3 -->
-    <div class="product" onclick="openModal('black-jersey')">
-      <img src="images/black-jersey.jpg" alt="Black Jersey Aesthetic" />
-      <h2>Black Jersey Aesthetic</h2>
-      <p class="status comingsoon">Coming Soon</p>
-    </div>
-
-    <!-- Product 4 -->
-    <div class="product" onclick="openModal('blue-jersey')">
-      <img src="images/blue-jersey.jpg" alt="Blue Jersey Aesthetic" />
-      <h2>Blue Jersey Aesthetic</h2>
-      <p class="status comingsoon">Coming Soon</p>
-    </div>
-  </main>
-
-  <!-- Modal -->
-  <div id="productModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <div id="modalDetails"></div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+      <a href="javascript:void(0)" onclick="openBag()">🛍️ Bag</a>
     </div>
   </div>
 
-  <footer>
-    <p>© 2025 CHUNNU. A Connection for Everyone.</p>
-    <p><a href="https://www.instagram.com/chunnu_brandofficial" target="_blank">@chunnu_brandofficial</a></p>
-  </footer>
+  <!-- BANNER -->
+  <div class="banner">
+    CHUNNU is a luxury streetwear brand that blends minimal aesthetics with bold expression — A Connection for Everyone
+  </div>
 
-  <script src="script.js"></script>
+  <!-- PRODUCT GRID -->
+  <div id="shop" class="product-grid">
+
+    <!-- PRODUCT 1 -->
+    <div class="product">
+      <img src="https://i.ibb.co/3W5FPv8/sample1.png" alt="Stray Kids Eyes Shirt">
+      <h3>Stray Kids Eyes Aesthetic Shirt</h3>
+      <button class="bag-btn" onclick="addToBag('Stray Kids Eyes Aesthetic Shirt', 'https://i.ibb.co/3W5FPv8/sample1.png', 'https://forms.gle/pCpHLP1tsYz8MLqW8')">Add to Bag</button>
+      <a href="https://forms.gle/pCpHLP1tsYz8MLqW8"><button class="order-btn">Order Now</button></a>
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="product">
+      <img src="https://i.ibb.co/kh3WbVt/sample2.png" alt="Stray Kids Giant Shirt">
+      <h3>Stray Kids Giant Album Stage Shirt</h3>
+      <button class="bag-btn" onclick="addToBag('Stray Kids Giant Album Stage Shirt', 'https://i.ibb.co/kh3WbVt/sample2.png', 'https://forms.gle/H34TwknBvEJ46XC6A')">Add to Bag</button>
+      <a href="https://forms.gle/H34TwknBvEJ46XC6A"><button class="order-btn">Order Now</button></a>
+    </div>
+
+    <!-- COMING SOON -->
+    <div class="product">
+      <img src="https://i.ibb.co/fXmh6j3/comingsoon.png" alt="Phone Case Coming Soon">
+      <h3>DOIT Phone Case (Coming Soon)</h3>
+    </div>
+
+  </div>
+
+  <!-- BAG POPUP -->
+  <div id="bagPopup" class="bag-popup">
+    <h2>Your Bag</h2>
+    <div id="bagItems"></div>
+    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+  </div>
+
+  <script>
+    let bag = [];
+
+    function addToBag(name, img, link) {
+      bag.push({ name, img, link });
+      alert(name + " added to your bag!");
+      updateBag();
+    }
+
+    function openBag() {
+      document.getElementById("bagPopup").classList.add("open");
+      updateBag();
+    }
+
+    function updateBag() {
+      const bagDiv = document.getElementById("bagItems");
+      bagDiv.innerHTML = '';
+      bag.forEach(item => {
+        bagDiv.innerHTML += `
+          <div class='bag-item'>
+            <img src='${item.img}'>
+            <div>
+              <p>${item.name}</p>
+              <a href='${item.link}' target='_blank'>Order Form</a>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    function checkout() {
+      let checkoutText = "Here are your order links:\n\n";
+      bag.forEach(item => checkoutText += item.name + ": " + item.link + "\n");
+      alert(checkoutText);
+    }
+  </script>
+
 </body>
 </html>
-
