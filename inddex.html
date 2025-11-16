@@ -1,0 +1,188 @@
+<!-- Updated Mobile-Optimized Version: 2 Products per Row, Larger Images, Smaller Text -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHUNNU — Luxury Streetwear</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #6B1F20;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #420D09;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar-logo img {
+      height: 60px;
+      border-radius: 60%;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: white;
+      font-size: 15px;
+    }
+
+    .banner {
+      margin-top: 90px;
+      background: #B41C1C;
+      padding: 25px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* MAIN PRODUCT GRID */
+    .product-grid {
+      margin: 30px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .product {
+      background: #D0312D;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .product h3 {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .product button {
+      margin-top: 6px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .order-btn,
+    .bag-btn {
+      background: #BC5449;
+      color: black;
+    }
+
+
+    /* ========================= */
+    /* RESPONSIVE: TABLETS BELOW */
+    /* ========================= */
+
+    @media (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    /* ========================= */
+    /* RESPONSIVE: PHONES BELOW */
+    /* ========================= */
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px 18px;
+      }
+
+      .navbar-logo img {
+        height: 55px;
+      }
+
+      .product-grid {
+        margin: 15px;
+        grid-template-columns: repeat(2, 1fr); /* 2 PER ROW */
+        gap: 15px;
+      }
+
+      .product {
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .product img {
+        width: 100%; /* IMAGE ALWAYS BIG */
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .product h3 {
+        font-size: 10px; /* TEXT SMALLER */
+        margin-top: 6px;
+      }
+
+      .product button {
+        padding: 5px 10px;
+        font-size: 10px;
+        margin-top: 4px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="navbar-logo">
+      <img src="https://raw.githubusercontent.com/bin-ruc/Chunnu/main/554218809_1778951729419826_8116552877900108071_n.jpg" alt="CHUNNU Logo">
+    </div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+      <a href="javascript:void(0)" onclick="openBag()">🛍️ Bag</a>
+    </div>
+  </div>
+
+  <!-- BANNER -->
+  <div class="banner">CHUNNU — A Connection You Can Feel Connected To</div>
+
+  <!-- PRODUCT GRID -->
+  <div id="shop" class="product-grid">
+
+    <div class="product">
+      <img src="https://raw.githubusercontent.com/bin-ruc/Chunnu/main/Gemini_Generated_Image_o97zt9o97zt9o97z.png">
+      <h3>Stray Kids Eyes Aesthetic Shirt</h3>
+      <button class="bag-btn">Add to Bag</button>
+      <button class="order-btn">Order Now</button>
+    </div>
+
+    <div class="product">
+      <img src="https://raw.githubusercontent.com/bin-ruc/Chunnu/main/Gemini_Generated_Image_hv056vhv056vhv05.png">
+      <h3>Stray Kids Giant Album Stage Shirt</h3>
+      <button class="bag-btn">Add to Bag</button>
+      <button class="order-btn">Order Now</button>
+    </div>
+
+    <div class="product">
+      <img src="https://raw.githubusercontent.com/bin-ruc/Chunnu/main/19a701ec0d8.jpg">
+      <h3>DO IT Phone Case (Coming Soon)</h3>
+    </div>
+
+  </div>
+
+</body>
+</html>
