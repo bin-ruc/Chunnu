@@ -1,3 +1,25 @@
+new item:
+<div class="product">
+  <img src="YOUR-IMAGE-LINK-HERE">
+  <h3>YOUR PRODUCT NAME HERE</h3>
+
+  <button onclick="openModal(
+    'YOUR PRODUCT NAME HERE',
+    'YOUR-IMAGE-LINK-HERE',
+    'YOUR DESCRIPTION HERE',
+    'YOUR GOOGLE FORM LINK'
+  )">Item Details</button>
+</div>
+
+
+
+
+
+
+
+
+
+
 <!-- Full website template with bag popup, grey background, black navbar, and product integration -->
 <!DOCTYPE html>
 <html lang="en">
